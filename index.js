@@ -6,12 +6,11 @@ import connection from './config/mongoose.js';
 import uploadRouter from "./features/upload/upload.route.js";
 const app = express();
 
-
-const port = 3000;
-
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors())
+
+app.get("/ping",(req,res)=>res.send("Hi"));
 
 app.use("/files",express.static("files"))
 
